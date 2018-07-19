@@ -3,20 +3,13 @@
  
 import tweepy, time, sys
 from random import randint
+from config import CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
  
-#enter the corresponding information from your Twitter application:
-CONSUMER_KEY = 'VGf9KuoNn9oWB5rn8cgQ7712x'#keep the quotes, replace this with your consumer key
-CONSUMER_SECRET = 'wJsYQxdD2BdJrhD6ndti8NFPG4UCxhQSE68PcFhU4R0UNhnIi7'#keep the quotes, replace this with your consumer secret key
-ACCESS_KEY = '952646059661996032-UgwFKEs8Kv8YTHogegvNTeoGlVZsQ9U'#keep the quotes, replace this with your access token
-ACCESS_SECRET = '1C598OymNsTNw37UKD8cJImVY2is7yO2IeikfvdBs5UEx'#keep the quotes, replace this with your access token secret
+
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
  
-filename=open('1syllable.txt','r')
-f=filename.readlines()
-filename.close()
-
 wordList1 = ["enchanting", "amazing", "colourful", "delightful", "honeydew", "delicate","shimmering", "fantastic","luminous", "ladybug", "butterfly", "happiness","blueberry","hydroflask", "burrito"]
 wordList2 = ["visions", "distance", "conscience", "process", "chaos","holy", "chubby","humor","grapefruit","idle","item","label","bunny","woman","birthday","frisky","nuisance","fire","water", "eyebrow","nostril","peanut"
 ,"lady","legal","locate","major","minus","moment","motor","music","nation","notion","obey","odor","oval",
@@ -46,7 +39,6 @@ haiku = haiku + wordList3[wordIndex3] + " " + wordList4[wordIndex4] + " " + word
 haiku = haiku + wordList6[wordIndex6] + " " + wordList2[wordIndex7] + "."
 
 print(haiku)
-
 
 api.update_status(haiku)
 time.sleep(1)       
